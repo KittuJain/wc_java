@@ -1,24 +1,23 @@
 public class Wc {
-	public int getLines(String text){
-		int numOfLines = 0;
-		for (int i = 0; i < text.length(); i++ ) {
-			if(text.charAt(i) == '\n')
-				numOfLines++;
-		}
-		return numOfLines;
+	
+	public String[] getLines(String text){
+		return text.split("\n");
 	}
 
-	public int getWords(String text){
-		if(text.length()==0)
+	public int countLines(String text){
+		if(text.length() == 0)
+			return 0;
+		return getLines(text).length;
+	}
+
+	public int countWords(String text){
+		if(text.length() == 0)
 			return 0;
 		String[] splitedText = text.split(" ");
 		return splitedText.length;
 	}
 
-	public int getChars(String text){
-		if(text.length()==0)
-			return 0;
-		byte[] splitedText = text.getBytes();
-		return splitedText.length;
+	public int countChars(String text){
+		return text.length();
 	}
 }
