@@ -25,6 +25,13 @@ public class WcTest{
 	}
 
 	@Test
+	public void getWords_gives_0_for_empty_string (){
+		String text = "";
+		Wc wc = new Wc();
+		assertEquals(0,wc.getWords(text));
+	}
+
+	@Test
 	public void getWords_gives_0_for_no_words_in_a_string (){
 		String text = " ";
 		Wc wc = new Wc();
@@ -46,6 +53,13 @@ public class WcTest{
 	}
 
 	@Test
+	public void getChars_gives_0_for_empty_string (){
+		String text = "";
+		Wc wc = new Wc();
+		assertEquals(0,wc.getChars(text));
+	}
+
+	@Test
 	public void getChars_gives_5_for_hello (){
 		String text = "hello";
 		Wc wc = new Wc();
@@ -58,4 +72,6 @@ public class WcTest{
 		Wc wc = new Wc();
 		assertEquals(19,wc.getChars(text));
 	}
+
+	
 }

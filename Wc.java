@@ -9,13 +9,15 @@ public class Wc {
 	}
 
 	public int getWords(String text){
-		int numOfWords = 0;
+		if(text.length()==0)
+			return 0;
 		String[] splitedText = text.split(" ");
 		return splitedText.length;
 	}
 
 	public int getChars(String text){
-		int numOfChars = 0;
+		if(text.length()==0)
+			return 0;
 		byte[] splitedText = text.getBytes();
 		return splitedText.length;
 	}
