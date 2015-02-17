@@ -8,10 +8,10 @@ public class Wc {
 		return numOfLines;
 	}
 	public int getWords(String text){
-		int numOfWords = 1;
-		for (int i = 0; i < text.length(); i++ ) {
-			if(text.charAt(i) == ' ')
-				numOfWords++;
+		int numOfWords = 0;
+		String[] splitedText = text.split(" ");
+		for (int i = 0; i < splitedText.length; i++) {
+			numOfWords++;
 		}
 		return numOfWords;
 	}
