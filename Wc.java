@@ -21,7 +21,7 @@ public class Wc {
 		String[] textSplittedByLine = getLines(text);
 		int numberOfWords = 0;
 		for (int i = 0; i < textSplittedByLine.length; i++ ) {
-			if(textSplittedByLine.length>1)
+			if(textSplittedByLine.length > 1)
 				numberOfWords += 2;
 			numberOfWords += textSplittedByLine[i].length();
 		}

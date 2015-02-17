@@ -4,10 +4,20 @@ import static org.junit.Assert.*;
 public class WcTest{
 
 	@Test
-	public void getLines_gets_the_lines_as_string (){
+	public void getLines_gets_the_line_as_string (){
 		String text = "hello, this is a good day.";
 		Wc wc = new Wc();
 		assertTrue(text.equals(wc.getLines(text)[0]));
+	}
+
+	@Test
+	public void getLines_gets_the_lines_as_string (){
+		String text = "hello, this is a good day.\nWhat do you think?\n";
+		String line1 = "hello, this is a good day.";
+		String line2 = "What do you think?";
+		Wc wc = new Wc();
+		assertTrue(line1.equals(wc.getLines(text)[0]));
+		assertTrue(line2.equals(wc.getLines(text)[1]));
 	}
 
 	@Test
