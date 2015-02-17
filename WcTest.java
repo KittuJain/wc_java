@@ -44,4 +44,18 @@ public class WcTest{
 		Wc wc = new Wc();
 		assertEquals(6,wc.getWords(text));
 	}
+
+	@Test
+	public void getChars_gives_5_for_hello (){
+		String text = "hello";
+		Wc wc = new Wc();
+		assertEquals(5,wc.getChars(text));
+	}
+
+	@Test
+	public void getChars_gives_19_for_hello_How_are_you (){
+		String text = "hello, How are you?";
+		Wc wc = new Wc();
+		assertEquals(19,wc.getChars(text));
+	}
 }

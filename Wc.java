@@ -7,10 +7,16 @@ public class Wc {
 		}
 		return numOfLines;
 	}
-	
+
 	public int getWords(String text){
 		int numOfWords = 0;
 		String[] splitedText = text.split(" ");
+		return splitedText.length;
+	}
+
+	public int getChars(String text){
+		int numOfChars = 0;
+		byte[] splitedText = text.getBytes();
 		return splitedText.length;
 	}
 }
