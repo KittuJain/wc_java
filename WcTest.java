@@ -32,6 +32,13 @@ public class WcTest{
 	}
 
 	@Test
+	public void countLines_gives_3_for_three_lines_present_in_a_string (){
+		String text = "hello, How are you?\nI am fine\nAnd you?\n";
+		Wc wc = new Wc();
+		assertEquals(3,wc.countLines(text));
+	}	
+
+	@Test
 	public void countWords_gives_0_for_empty_string (){
 		String text = "";
 		Wc wc = new Wc();
@@ -81,9 +88,16 @@ public class WcTest{
 	}
 
 	@Test
-	public void countChars_gives_48_for_hello_How_are_you (){
+	public void countChars_gives_48_for_string_with_two_lines (){
 		String text = "hello, this is a good day.\nWhat do you think?\n";
 		Wc wc = new Wc();
 		assertEquals(48,wc.countChars(text));
+	}
+
+	@Test
+	public void countChars_gives_40_for_string_with_three_lines (){
+		String text = "hello, How are you?\nI am fine\nAnd you?\n";
+		Wc wc = new Wc();
+		assertEquals(42,wc.countChars(text));
 	}
 }
