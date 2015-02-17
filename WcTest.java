@@ -80,10 +80,10 @@ public class WcTest{
 		assertEquals(19,wc.countChars(text));
 	}
 
-	// @Test
-	// public void countChars_gives_48_for_hello_How_are_you (){
-	// 	String text = "hello, this is a good day.\nWhat do you think?\n";
-	// 	Wc wc = new Wc();
-	// 	assertEquals(48,wc.countChars(text));
-	// }
+	@Test
+	public void countChars_gives_48_for_hello_How_are_you (){
+		String text = "hello, this is a good day.\nWhat do you think?\n";
+		Wc wc = new Wc();
+		assertEquals(48,wc.countChars(text));
+	}
 }
