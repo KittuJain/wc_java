@@ -7,12 +7,10 @@ public class Wc {
 		}
 		return numOfLines;
 	}
+	
 	public int getWords(String text){
 		int numOfWords = 0;
 		String[] splitedText = text.split(" ");
-		for (int i = 0; i < splitedText.length; i++) {
-			numOfWords++;
-		}
-		return numOfWords;
+		return splitedText.length;
 	}
 }

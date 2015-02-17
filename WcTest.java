@@ -25,6 +25,13 @@ public class WcTest{
 	}
 
 	@Test
+	public void getWords_gives_0_for_no_words_in_a_string (){
+		String text = " ";
+		Wc wc = new Wc();
+		assertEquals(0,wc.getWords(text));
+	}
+
+	@Test
 	public void getWords_gives_1_for_one_word_in_a_string (){
 		String text = "Hello";
 		Wc wc = new Wc();
