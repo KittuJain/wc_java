@@ -13,13 +13,16 @@ public class Wc {
 	public int countWords(String text){
 		if(text.length() == 0)
 			return 0;
-		String[] splitedText = text.split(" ");
-		return splitedText.length;
+		return text.split(" ").length + getLines(text).length-1;
 	}
 
 	public int countChars(String text){
 		if(getLines(text).length > 1)
-			return text.length()+getLines(text).length;
+			return text.length() + getLines(text).length;
 		return text.length();
+	}
+
+	public String getWordCount(String text){
+		return countLines(text) +" " +countWords(text)+" "+ countChars(text);
 	}
 }
