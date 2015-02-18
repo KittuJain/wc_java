@@ -18,13 +18,8 @@ public class Wc {
 	}
 
 	public int countChars(String text){
-		String[] textSplittedByLine = getLines(text);
-		int numberOfWords = 0;
-		for (int i = 0; i < textSplittedByLine.length; i++ ) {
-			if(textSplittedByLine.length > 1)
-				numberOfWords += 2;
-			numberOfWords += textSplittedByLine[i].length();
-		}
-		return numberOfWords;
+		if(getLines(text).length > 1)
+			return text.length()+getLines(text).length;
+		return text.length();
 	}
 }
