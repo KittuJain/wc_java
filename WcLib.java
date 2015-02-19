@@ -1,11 +1,17 @@
 public class WcLib {
-	String text,option;
+	String text, option;
 	int lines, words, chars;
 	public WcLib(String text){
 		this.text = text;
 	}
 
 	public WcLib(String text, String option){
+		if(text.charAt(0) == '-'){
+			String contents = text;
+			text = option;
+			option = contents;
+		}
+		
 		this.text = text;
 		this.option = option;
 	}

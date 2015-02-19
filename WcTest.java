@@ -193,4 +193,28 @@ public class WcTest{
 		wc.getWordCount();
 		assertEquals(wc.toString(), "21");
 	}
+
+	@Test
+	public void wc_should_return_1_one_line_when_l_option_is_given_before_text () {
+		String text = "hello, How are you?\r\n";
+		WcLib wc = new WcLib("-l", text);
+		wc.getWordCount();
+		assertEquals(wc.toString(), "1");
+	}
+
+	@Test
+	public void wc_should_return_4_for_four_words_when_w_option_is_given_before_text () {
+		String text = "hello, How are you?\r\n";
+		WcLib wc = new WcLib("-w", text);
+		wc.getWordCount();
+		assertEquals(wc.toString(), "4");
+	}
+
+	@Test
+	public void wc_should_return_21_for_twenty_one_characters_when_c_option_is_given_before_text () {
+		String text = "hello, How are you?\r\n";
+		WcLib wc = new WcLib("-c", text);
+		wc.getWordCount();
+		assertEquals(wc.toString(), "21");
+	}
 }
