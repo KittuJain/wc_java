@@ -12,7 +12,7 @@ public class WcLib {
 	public int countLines(){
 		int numOfLines = 0;
 		for (int i = 0; i < text.length(); i++ ) {
-			if(text.charAt(i) == '\r')
+			if(text.charAt(i) == '\n')
 				numOfLines++;
 		}
 		return numOfLines;

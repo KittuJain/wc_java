@@ -17,11 +17,13 @@ public class WcMain {
 			fr = new FileReader(file);
 		}
 		catch(Exception e){
+
 		}
 
 		BufferedReader br = new BufferedReader(fr);
 		br.read(cbuf, 0, length);
 		String text = new String(cbuf);
+		System.out.println(cbuf);
 		WcLib wc = new WcLib(text);
 		return wc.getWordCount();
 	}
