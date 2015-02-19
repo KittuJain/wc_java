@@ -11,13 +11,9 @@ public class WcLib {
 			text = option;
 			option = contents;
 		}
-		
+
 		this.text = text;
 		this.option = option;
-	}
-
-	public String[] getLines(){
-		return text.split("\r\n");
 	}
 
 	public int countLines(){
@@ -32,7 +28,7 @@ public class WcLib {
 	public int countWords(){
 		if(text.length() == 0)
 			return 0;
-		return text.split(" ").length + getLines().length-1;
+		return text.split("\\s+").length;
 	}
 
 	public int countChars(){

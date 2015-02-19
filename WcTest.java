@@ -4,23 +4,6 @@ import static org.junit.Assert.*;
 public class WcTest{
 
 	@Test
-	public void getLines_gets_the_line_as_string (){
-		String text = "hello, this is a good day.";
-		WcLib wc = new WcLib(text);
-		assertTrue(text.equals(wc.getLines()[0]));
-	}
-
-	@Test
-	public void getLines_gets_the_lines_as_string (){
-		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
-		String line1 = "hello, this is a good day.";
-		String line2 = "What do you think?";
-		WcLib wc = new WcLib(text);
-		assertTrue(line1.equals(wc.getLines()[0]));
-		assertTrue(line2.equals(wc.getLines()[1]));
-	}
-
-	@Test
 	public void countLines_gives_0_for_empty_string (){
 		String text = "";
 		WcLib wc = new WcLib(text);
