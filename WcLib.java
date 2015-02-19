@@ -6,13 +6,13 @@ public class WcLib {
 	}
 
 	public String[] getLines(){
-		return text.split("\n");
+		return text.split("\r\n");
 	}
 
 	public int countLines(){
 		int numOfLines = 0;
 		for (int i = 0; i < text.length(); i++ ) {
-			if(text.charAt(i) == '\n')
+			if(text.charAt(i) == '\r')
 				numOfLines++;
 		}
 		return numOfLines;
@@ -25,7 +25,7 @@ public class WcLib {
 	}
 
 	public int countChars(){
-		return text.length() + countLines();
+		return text.length();
 	}
 
 	public String getWordCount(){

@@ -23,6 +23,6 @@ public class WcMain {
 		br.read(cbuf, 0, length);
 		String text = new String(cbuf);
 		WcLib wc = new WcLib(text);
-		return wc.countLines() +" " +wc.countWords()+" "+ length;
+		return wc.getWordCount();
 	}
 }
