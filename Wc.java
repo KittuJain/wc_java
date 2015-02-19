@@ -1,34 +1,33 @@
 public class Wc {
+	String text;
 
-	public static void main(String[] args) {
-		Wc wc = new Wc();
-		String text = System.console().readLine();
-		System.out.println(wc.getWordCount(text));
+	public Wc(String text){
+		this.text = text;
 	}
 
-	public String[] getLines(String text){
+	public String[] getLines(){
 		return text.split("\n");
 	}
 
-	public int countLines(String text){
+	public int countLines(){
 		if(text.length() == 0)
 			return 0;
-		return getLines(text).length;
+		return getLines().length;
 	}
 
-	public int countWords(String text){
+	public int countWords(){
 		if(text.length() == 0)
 			return 0;
-		return text.split(" ").length + getLines(text).length-1;
+		return text.split(" ").length + getLines().length-1;
 	}
 
-	public int countChars(String text){
-		if(getLines(text).length > 1)
-			return text.length() + getLines(text).length;
+	public int countChars(){
+		if(getLines().length > 1)
+			return text.length() + getLines().length;
 		return text.length();
 	}
 
-	public String getWordCount(String text){
-		return countLines(text) +" " +countWords(text)+" "+ countChars(text);
+	public String getWordCount(){
+		return countLines() +" " +countWords()+" "+ countChars();
 	}
 }
