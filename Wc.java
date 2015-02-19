@@ -1,5 +1,11 @@
 public class Wc {
 
+	public static void main(String[] args) {
+		Wc wc = new Wc();
+		String text = System.console().readLine();
+		System.out.println(wc.getWordCount(text));
+	}
+
 	public String[] getLines(String text){
 		return text.split("\n");
 	}
