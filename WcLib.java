@@ -1,8 +1,13 @@
 public class WcLib {
-	String text;
-
+	String text,option;
+	int lines, words, chars;
 	public WcLib(String text){
 		this.text = text;
+	}
+
+	public WcLib(String text, String option){
+		this.text = text;
+		this.option = option;
 	}
 
 	public String[] getLines(){
@@ -28,7 +33,20 @@ public class WcLib {
 		return text.length();
 	}
 
-	public String getWordCount(){
-		return countLines() +" " +countWords()+" "+ countChars();
+	public void getWordCount(){
+		this.lines = countLines();
+		this.words = countWords();
+		this.chars = countChars();
+	}
+	
+	public String toString(){
+		if(option!=null){
+			switch(option){
+				case "-l" : return ""+lines;
+				case "-w" : return ""+words;
+				case "-c" : return ""+chars;
+			}
+		}
+		return lines + " " + words + " " + chars;
 	}
 }

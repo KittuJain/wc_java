@@ -150,20 +150,47 @@ public class WcTest{
 	public void wc_gives_42_char_count_9_word_count_and_3_line_count (){
 		String text = "hello, How are you?\r\nI am fine\r\nAnd you?\r\n";
 		WcLib wc = new WcLib(text);
-		assertTrue(wc.getWordCount().equals("3 9 42"));
+		wc.getWordCount();
+		assertTrue(wc.toString().equals("3 9 42"));
 	}
 
 	@Test
 	public void wc_gives_48_char_count_10_word_count_and_2_line_count (){
 		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib(text);
-		assertTrue(wc.getWordCount().equals("2 10 48"));
+		wc.getWordCount();
+		assertTrue(wc.toString().equals("2 10 48"));
 	}
 
 	@Test
 	public void wc_gives_59_char_count_13_word_count_and_4_line_count (){
 		String text = "hello, How are you?\r\nI am fine\r\nAnd you?\r\nI am also good.\r\n";
 		WcLib wc = new WcLib(text);
-		assertTrue(wc.getWordCount().equals("4 13 59"));
+		wc.getWordCount();
+		assertTrue(wc.toString().equals("4 13 59"));
+	}
+
+	@Test
+	public void wc_should_return_1_one_line_when_l_option_is_given () {
+		String text = "hello, How are you?\r\n";
+		WcLib wc = new WcLib(text,"-l");
+		wc.getWordCount();
+		assertEquals(wc.toString(), "1");
+	}
+
+	@Test
+	public void wc_should_return_4_for_four_words_when_w_option_is_given () {
+		String text = "hello, How are you?\r\n";
+		WcLib wc = new WcLib(text,"-w");
+		wc.getWordCount();
+		assertEquals(wc.toString(), "4");
+	}
+
+	@Test
+	public void wc_should_return_21_for_twenty_one_characters_when_c_option_is_given () {
+		String text = "hello, How are you?\r\n";
+		WcLib wc = new WcLib(text,"-c");
+		wc.getWordCount();
+		assertEquals(wc.toString(), "21");
 	}
 }
