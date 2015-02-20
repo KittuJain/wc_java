@@ -55,21 +55,19 @@ public class WcLib {
 	public int getLongestLine (){
 		int [] lengths = getLengthsOfEachLine();
 		int greaterLength = 0;
-		for(int i = 0; i < lengths.length; i++){
-			if(lengths[i] > greaterLength)
-				greaterLength = lengths[i];
+		for(int length : lengths){
+			if(length > greaterLength)
+				greaterLength = length;
 		}
 		return greaterLength;
 	}
 
 	public int getShortestLine (){
 		int [] lengths = getLengthsOfEachLine();
-		int shortestLength = 0;
-		for(int i = 0; i < lengths.length-1; i++){
-			if(lengths[i] < lengths[i+1])
-				shortestLength = lengths[i];
-			else
-				shortestLength = lengths[i+1];
+		int shortestLength = lengths[0];
+		for(int length : lengths){
+			if(length < shortestLength)
+				shortestLength = length;
 		}
 		return shortestLength;
 	}
