@@ -62,17 +62,17 @@ public class WcLib {
 	public int getShortestLine (){
 		String[] lines = getLines();
 		int lengths[] = new int[lines.length];
-		int greaterLength = 0;
+		int shortestLength = 0;
 		for (int i = 0; i < lines.length; i++ ) {
 			lengths[i] = lines[i].length();
 		}
 		for(int i = 0; i < lengths.length-1; i++){
 			if(lengths[i] < lengths[i+1])
-				greaterLength = lengths[i];
+				shortestLength = lengths[i];
 			else
-				greaterLength = lengths[i+1];
+				shortestLength = lengths[i+1];
 		}
-		return greaterLength;
+		return shortestLength;
 	}
 
 	public void getWordCount(){
