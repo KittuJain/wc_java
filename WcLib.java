@@ -43,13 +43,18 @@ public class WcLib {
 		return chars;
 	}
 
-	public int getLongestLine (){
+	public int[] getLengthsOfEachLine (){
 		String[] lines = getLines();
 		int lengths[] = new int[lines.length];
-		int greaterLength = 0;
 		for (int i = 0; i < lines.length; i++ ) {
 			lengths[i] = lines[i].length();
 		}
+		return lengths;
+	}
+
+	public int getLongestLine (){
+		int [] lengths = getLengthsOfEachLine();
+		int greaterLength = 0;
 		for(int i = 0; i < lengths.length-1; i++){
 			if(lengths[i] > lengths[i+1])
 				greaterLength = lengths[i];
@@ -60,12 +65,8 @@ public class WcLib {
 	}
 
 	public int getShortestLine (){
-		String[] lines = getLines();
-		int lengths[] = new int[lines.length];
+		int [] lengths = getLengthsOfEachLine();
 		int shortestLength = 0;
-		for (int i = 0; i < lines.length; i++ ) {
-			lengths[i] = lines[i].length();
-		}
 		for(int i = 0; i < lengths.length-1; i++){
 			if(lengths[i] < lengths[i+1])
 				shortestLength = lengths[i];

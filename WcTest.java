@@ -220,29 +220,29 @@ public class WcTest{
 
 	@Test
 	public void getLongestLine_should_return_27_as_length_of_longest_line () {
-		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib(text);
-		assertEquals(27, wc.getLongestLine());
+		assertEquals(26, wc.getLongestLine());
 	}
 
 	@Test
 	public void getShortestLine_should_return_18_as_length_of_shortest_line () {
-		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib(text);
 		assertEquals(18, wc.getShortestLine());
 	}
 
 	@Test
 	public void wc_should_return_27_as_length_of_longest_line_when_asked_for_L_option () {
-		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib("-L", text);
 		wc.getWordCount();
-		assertEquals("27", wc.toString());
+		assertEquals("26", wc.toString());
 	}
 
 	@Test
 	public void wc_should_return_32_as_length_of_longest_line_when_asked_for_L_option () {
-		String text = "	hello, this is a good day.\r\nWhat do you think about the day?\r\n";
+		String text = "hello, this is a good day.\r\nWhat do you think about the day?\r\n";
 		WcLib wc = new WcLib("-L", text);
 		wc.getWordCount();
 		assertEquals("32", wc.toString());
@@ -250,9 +250,18 @@ public class WcTest{
 
 	@Test
 	public void wc_should_return_18_as_length_of_shortest_line_when_asked_for_S_option () {
-		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib("-S", text);
 		wc.getWordCount();
 		assertEquals("18", wc.toString());
+	}
+
+	@Test
+	public void getLengthsOfEachLine_gives_27_and_18_as_lengths_elements () {
+		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
+		WcLib wc = new WcLib(text);
+		int[] lengths = wc.getLengthsOfEachLine();
+		assertEquals(26, lengths[0]);
+		assertEquals(18, lengths[1]);
 	}
 }
