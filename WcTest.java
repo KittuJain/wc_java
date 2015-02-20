@@ -151,7 +151,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\nI am fine\r\nAnd you?\r\n";
 		WcLib wc = new WcLib(text);
 		wc.getWordCount();
-		assertTrue(wc.toString().equals("3 9 42"));
+		assertTrue(wc.toString().equals("\t3\t9\t42"));
 	}
 
 	@Test
@@ -159,7 +159,7 @@ public class WcTest{
 		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib(text);
 		wc.getWordCount();
-		assertTrue(wc.toString().equals("2 10 48"));
+		assertTrue(wc.toString().equals("\t2\t10\t48"));
 	}
 
 	@Test
@@ -167,7 +167,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\nI am fine\r\nAnd you?\r\nI am also good.\r\n";
 		WcLib wc = new WcLib(text);
 		wc.getWordCount();
-		assertTrue(wc.toString().equals("4 13 59"));
+		assertTrue(wc.toString().equals("\t4\t13\t59"));
 	}
 
 	@Test

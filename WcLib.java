@@ -88,6 +88,6 @@ public class WcLib {
 				case "-S" : return ""+getShortestLine();
  			}
 		}
-		return lines + " " + words + " " + chars;
+		return "\t" + lines + "\t" + words + "\t" + chars;
 	}
 }

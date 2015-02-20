@@ -27,6 +27,6 @@ public class WcMain {
 		String text = new String(cbuf);
 		WcLib wc = new WcLib(text,option);
 		wc.getWordCount();
-		return wc.toString();
+		return wc.toString()+"\t"+fileName;
 	}
 }
