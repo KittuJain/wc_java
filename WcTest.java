@@ -226,6 +226,13 @@ public class WcTest{
 	}
 
 	@Test
+	public void getShortestLine_should_return_18_as_length_of_shortest_line () {
+		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		WcLib wc = new WcLib(text);
+		assertEquals(18, wc.getShortestLine());
+	}
+
+	@Test
 	public void wc_should_return_27_as_length_of_longest_line_when_asked_for_L_option () {
 		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
 		WcLib wc = new WcLib("-L", text);
@@ -239,5 +246,13 @@ public class WcTest{
 		WcLib wc = new WcLib("-L", text);
 		wc.getWordCount();
 		assertEquals("32", wc.toString());
+	}
+
+	@Test
+	public void wc_should_return_18_as_length_of_shortest_line_when_asked_for_S_option () {
+		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		WcLib wc = new WcLib("-S", text);
+		wc.getWordCount();
+		assertEquals("18", wc.toString());
 	}
 }
