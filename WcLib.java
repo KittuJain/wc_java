@@ -1,6 +1,7 @@
 public class WcLib {
 	String text, option;
 	int lines, words, chars;
+
 	public WcLib(String text){
 		this.text = text;
 	}
@@ -16,23 +17,46 @@ public class WcLib {
 		this.option = option;
 	}
 
+	public String[] getLines(){
+		return text.split("\r\n");
+	}
+
 	public int countLines(){
 		int numOfLines = 0;
 		for (int i = 0; i < text.length(); i++ ) {
 			if(text.charAt(i) == '\n')
 				numOfLines++;
 		}
-		return numOfLines;
+		lines = numOfLines;
+		return lines;
 	}
 
 	public int countWords(){
 		if(text.length() == 0)
 			return 0;
-		return text.split("\\s+").length;
+		words = text.split("\\s+").length;
+		return words;
 	}
 
 	public int countChars(){
-		return text.length();
+		chars = text.length();
+		return chars;
+	}
+
+	public int getLongestLine (){
+		String[] lines = getLines();
+		int lengths[] = new int[lines.length];
+		int greaterLength = 0;
+		for (int i = 0; i < lines.length; i++ ) {
+			lengths[i] = lines[i].length();
+		}
+		for(int i = 0; i < lengths.length-1; i++){
+			if(lengths[i] > lengths[i+1])
+				greaterLength = lengths[i];
+			else
+				greaterLength = lengths[i+1];
+		}
+		return greaterLength;
 	}
 
 	public void getWordCount(){
@@ -47,7 +71,8 @@ public class WcLib {
 				case "-l" : return ""+lines;
 				case "-w" : return ""+words;
 				case "-c" : return ""+chars;
-			}
+				case "-L" : return ""+getLongestLine();
+ 			}
 		}
 		return lines + " " + words + " " + chars;
 	}

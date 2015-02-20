@@ -4,6 +4,23 @@ import static org.junit.Assert.*;
 public class WcTest{
 
 	@Test
+	public void getLines_gets_the_line_as_string (){
+		String text = "hello, this is a good day.";
+		WcLib wc = new WcLib(text);
+		assertTrue(text.equals(wc.getLines()[0]));
+	}
+
+	@Test
+	public void getLines_gets_the_lines_as_string (){
+		String text = "hello, this is a good day.\r\nWhat do you think?\r\n";
+		String line1 = "hello, this is a good day.";
+		String line2 = "What do you think?";
+		WcLib wc = new WcLib(text);
+		assertTrue(line1.equals(wc.getLines()[0]));
+		assertTrue(line2.equals(wc.getLines()[1]));
+	}
+
+	@Test
 	public void countLines_gives_0_for_empty_string (){
 		String text = "";
 		WcLib wc = new WcLib(text);
@@ -158,7 +175,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\n";
 		WcLib wc = new WcLib(text,"-l");
 		wc.getWordCount();
-		assertEquals(wc.toString(), "1");
+		assertEquals("1", wc.toString());
 	}
 
 	@Test
@@ -166,7 +183,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\n";
 		WcLib wc = new WcLib(text,"-w");
 		wc.getWordCount();
-		assertEquals(wc.toString(), "4");
+		assertEquals("4", wc.toString());
 	}
 
 	@Test
@@ -174,7 +191,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\n";
 		WcLib wc = new WcLib(text,"-c");
 		wc.getWordCount();
-		assertEquals(wc.toString(), "21");
+		assertEquals("21", wc.toString());
 	}
 
 	@Test
@@ -182,7 +199,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\n";
 		WcLib wc = new WcLib("-l", text);
 		wc.getWordCount();
-		assertEquals(wc.toString(), "1");
+		assertEquals("1", wc.toString());
 	}
 
 	@Test
@@ -190,7 +207,7 @@ public class WcTest{
 		String text = "hello, How are you?\r\n";
 		WcLib wc = new WcLib("-w", text);
 		wc.getWordCount();
-		assertEquals(wc.toString(), "4");
+		assertEquals("4", wc.toString());
 	}
 
 	@Test
@@ -198,6 +215,29 @@ public class WcTest{
 		String text = "hello, How are you?\r\n";
 		WcLib wc = new WcLib("-c", text);
 		wc.getWordCount();
-		assertEquals(wc.toString(), "21");
+		assertEquals("21", wc.toString());
+	}
+
+	@Test
+	public void getLongestLine_should_return_27_as_length_of_longest_line () {
+		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		WcLib wc = new WcLib(text);
+		assertEquals(27, wc.getLongestLine());
+	}
+
+	@Test
+	public void wc_should_return_27_as_length_of_longest_line_when_asked_for_L_option () {
+		String text = "	hello, this is a good day.\r\nWhat do you think?\r\n";
+		WcLib wc = new WcLib("-L", text);
+		wc.getWordCount();
+		assertEquals("27", wc.toString());
+	}
+
+	@Test
+	public void wc_should_return_32_as_length_of_longest_line_when_asked_for_L_option () {
+		String text = "	hello, this is a good day.\r\nWhat do you think about the day?\r\n";
+		WcLib wc = new WcLib("-L", text);
+		wc.getWordCount();
+		assertEquals("32", wc.toString());
 	}
 }
