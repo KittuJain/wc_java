@@ -55,11 +55,9 @@ public class WcLib {
 	public int getLongestLine (){
 		int [] lengths = getLengthsOfEachLine();
 		int greaterLength = 0;
-		for(int i = 0; i < lengths.length-1; i++){
-			if(lengths[i] > lengths[i+1])
+		for(int i = 0; i < lengths.length; i++){
+			if(lengths[i] > greaterLength)
 				greaterLength = lengths[i];
-			else
-				greaterLength = lengths[i+1];
 		}
 		return greaterLength;
 	}
